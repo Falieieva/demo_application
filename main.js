@@ -1,9 +1,16 @@
-import { generateRandomEmoji, addEmoji } from './emojiUtils.js';
+import { generateRandomEmoji, addEmoji, deleteEmoji } from './emojiUtils.js';
 
-function deleteEmoji() {
-    document.getElementById('emojiInput').value = '';
-}
+const emojiInput = document.getElementById('emojiInput');
+
+emojiInput.addEventListener('input', deleteEmoji);
 
 generateRandomEmoji();
 
-window.addEmoji = addEmoji;
+document.getElementById('addButton').addEventListener('click', addEmoji);
+
+emojiInput.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        addEmoji();
+    }
+});
+

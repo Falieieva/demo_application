@@ -4,7 +4,12 @@ const emojis = ['🐮', '🐯', '🐼', '🐨', '🐵', '🐷', '🐸'];
 export function generateRandomEmoji() {
     const randomIndex = Math.floor(Math.random() * emojis.length);
     const randomEmoji = emojis[randomIndex];
-    document.getElementById('emojiInput').value = randomEmoji;
+    document.getElementById('emojiInput').value = randomEmoji + ' ';
+}
+
+export function deleteEmoji() {
+    const emojiInput = document.getElementById('emojiInput');
+    emojiInput.value = emojiInput.value.trim();
 }
 
 export function addEmoji() {
@@ -32,6 +37,5 @@ export function addEmoji() {
     }
 
     document.getElementById('emojiInput').value = '';
-    
     generateRandomEmoji();
 }
